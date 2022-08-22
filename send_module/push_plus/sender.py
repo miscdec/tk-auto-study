@@ -1,5 +1,6 @@
 import requests
 import json
+import datetime
 
 send_sess = requests.session()
 send_key = ""
@@ -15,7 +16,7 @@ def send(title, content) -> dict:
     
     data = {
 	    "token":f"{send_key}",
-	    "title":f"{title}",
+	    "title":f"{title} {datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S.%f UTC')}",
 	    "content":f"# {title}\n\n{content}",
             "template":"markdown"
             }
