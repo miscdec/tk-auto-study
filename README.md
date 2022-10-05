@@ -4,11 +4,15 @@
 
 [此处展示最近更新日志，完整日志搓这里](./doc/Log.md)
 
-> 2022.06.17：⚠ **重要：验证码检测回归**，现在需要验证码识别技术，请使用`1.3.0`及以上版本。⚠
->
-> 2022.06.22: 新增本地OCR识别，非常感谢@sqlpxc贡献了[Rust编写的OCR识别程序](https://github.com/sqlpxc/cyl_auto_punch_rust)，使用方法看下面“可选识别类型”
->
 > 2022.07.28: 新增微软Azure的计算机视觉OCR，仔细阅读帮助文档来使用这个新功能
+>
+> 2022.08.24: 新增配置 maxRetry 自定义最大重试次数
+>
+> 2022.08.31: 新增pytesseract OCR识别, 需要安装依赖，Linux推荐(1.3.3及以上可用),修复send.mode总是fail的问题
+>
+> 2022.09.12: 修复一个可能导致 connection timeout 的原因
+>
+> 2022.09.20: 优化执行流程和pytesseract参数
 
 🤺妈妈再也不用担心我团课没看被团支书赶着催了
 
@@ -64,6 +68,10 @@ A7E74D2B6282AEB1C5EA3C28D25660A7
 
 在本地或者国内服务器上部署不需要代理，可兼容**Python3.7**版本
 
+> requirements.full.txt 包含了项目中所有可能的python依赖 
+> 
+> requirements.txt 包含默认情况下需要的最少依赖
+
 #### crontab
 
 克隆项目并更改配置文件名称
@@ -113,6 +121,7 @@ GithubAction（可选）添加新的secrets:ocr_type来指定识别类型
 | baidu_image | [默认方法,需要到百度AI中申请](https://blog.pressed.top/2021/02/14/signUpBaiduOcr/) | 1.3.0    |
 | tesseract   | [本地ocr识别,Windows推荐,Linux需要安装配置](./doc/ocr_help/tesseract.md) | 1.3.1    |
 | azure       | [需要微软账号申请](./doc/ocr_help/azure.md)                  | 1.3.2    |
+| pytesseract | [需要安装依赖，推荐linux下使用](./doc/ocr_help/pytesseract.md) | 1.3.3    |
 
 ## 可选消息推送
 
@@ -158,6 +167,15 @@ GithubAction用户可通过添加secrets：send_type, send_key, send_mode 来使
 ## Stargazers over time
 
 [![Stargazers over time](https://starchart.cc/838239178/tk-auto-study.svg)](https://starchart.cc/838239178/tk-auto-study)
+
+## 鸣谢
+
+> [Pycharm](https://zh.wikipedia.org/wiki/PyCharm) 是一个在各个方面都最大程度地提高开发人员的生产力的 IDE，适用于 Python 语言。
+
+特别感谢 [JetBrains](https://www.jetbrains.com/?from=mirai) 为开源项目提供免费的 [PyCharm](https://www.jetbrains.com/pycharm/?from=mirai) 等 IDE 的授权
+
+[<img src="https://github.com/mamoe/mirai/raw/dev/.github/jetbrains-variant-3.png" width="200"/>](https://www.jetbrains.com/?from=mirai)
+
 
 ## 赏我一杯Coffee
 
